@@ -1,0 +1,1 @@
+SrcIP;DstIP;SrcPort;DstPort;Proto;SNI;OrgName;TLS Version;Client CipherSuite;Client Extensions;Client Supported Groups;EC_fmt;ALPN;Signature Algorithms;Client Supported Versions;JA3hash;JA4 hash;JA4_raw;AppName;Type;Server CipherSuite;Server Extensions;Server Supported Versions;JA3S hash;JA4S hash;JA4S_raw;Filename;Version
