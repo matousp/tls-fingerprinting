@@ -3,8 +3,8 @@
 This folder contains datasets in PCAP and CSV format used in the experiments published in the paper *Matoušek Petr, Ryšavý Ondřej a Burgetová Ivana. Towards Identification of Network Applications in Encrypted Traffic. In the Proceedings of the 8th Cyber Security in Networking Conference 2024, Paris, France, 2024*, see folder [papers](../papers). 
 
 ## A list of folders and files
-  * [desktop](desktop): Original PCAP and CSV files of captured desktop application communications.
-  * [mobile](mobile): Original PCAP and CSV files of captured mobile application communications.
+  * [desktop](desktop): Original PCAP and CSV files of captured desktop application communications, [description](destkop/README.md).
+  * [mobile](mobile): Original PCAP and CSV files of captured mobile application communications, [description](destkop/README.md).
   * [iscx](isxc): PCAP and CSV files of [VPN-nonVPN dataset (ISCXVPN2016)](https://www.unb.ca/cic/datasets/vpn.html) originally created by the Canadian Institute for Cybersecurity (CIC).
   * **mobile_desktop_apps-raw.csv**: annotated CSV records of mobile and desktop application and service communications (77  applications).
   * **iscx-raw.csv**: annotated CSV records of application communications of the VPN-nonVPN dataset (ISCXVPN2016) dataset (16 applications).
