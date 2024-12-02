@@ -1,53 +1,23 @@
-# Desktop Applications
+# ISCX Dataset Applications
 
-This folder contains PCAP files and CSV files containing communications from a specific MS Window application. MS Window desktop communication samples were obtained by running Windows applications and services, and capturing their communication using tshark. Each application was tested with multiple runs, so each file name contains the date of the run, e.g., AirDroidAirDroid_20240722.pcap indicates AirDroid application running on 22/7/2024. The captured communication was later annotated by process names obtained by observing the connected ports on the desktop.
+This folder contains PCAP files and CSV files of VPN-nonVPN dataset (ISCXVPN2016) originally created by the Canadian Institute for Cybersecurity (CIC). This dataset was used to for comparison with our TLS fingerprinting solution.
 
-Some PCAP files have been omitted due to the Github file size limitations. However, the full record of TLS sessions is available in the corresponding CSV files.
-
-# A list of desktop applications and process names
-* Messenger - AdmntMessenger
-* AirDroid - AirDroidAirDroid
-* AsnAsn
-* BeeerBeeer
-* BidBox - BiduTerBox
-* BiglyBT Bittorrent Client - BiglySoftwreBiglyBT
-* Brave Browser - BrveBrve
-* CloudAGCloudDrive
-* Cozy Cloud - CozyCloudCozyDrive
-* CrineCrine
-* Deezer - DeezerDeezer
-* Send Anywhere - EstmobSendAnywhere
-* Evernote - EvernoteEvernote
-* GoogleChrome - GoogleChrome
-* HedsetHedset
-* LINELINE
-* MegMEGASyn
-* MehediHssnTweeten
-* MilbirdMilbird
-* MS Edge - MirosoftEdge
-* Firefox - MozillFirefox
-* Thunderbird - MozillThunderbird
-* Nextcloud - NextloudNextloudDeskto
-* NotionNotion
-* NotionNotionClendr
-* OenMedi4KStogrm
-* OenMedi4KTokkit
-* OenWhiserSystemsSignl
-* OerOer
-* Proton Drive - ProtonProtonDrive
-* Viber - RkutenViber
-* SlkTehnologiesSlk
-* SlshedIoInssist
-* SotifySotify
-* TIDALMusiASTIDAL
-* Telegram - TelegrmTelegrmDeskto
-* TemDriveSystemsTemDrive
-* TemSonrrSonrr
-* TrillinTrillin
-* TymnixEletorrent
-* YndexMessenger
-* Zoom - ZoomZoom
-* eMClienteMClient
+## A list of applications, for details see [ISCXVPN2016](https://www.unb.ca/cic/datasets/vpn.html):
+* aim
+* bittorrent
+* email
+* facebook
+* ftps
+* gmail
+* hangout
+* icq
+* netflix
+* scp
+* sftp
+* skype
+* spotify
+* vimeo
+* voipbuster
 
 ## CSV raw file format - a sequence of TLS connections
    1. **SrcIP**: TLS client IP address

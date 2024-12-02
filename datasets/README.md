@@ -36,8 +36,8 @@ This folder contains datasets in PCAP and CSV format used in the experiments pub
    21. **Server CipherSuite**: A cipher suite selected by the server during the TLS handshake. 
    22. **Server Extensions**: Extensions selected by the server during the TLS handshake.
    23. **Server Supported Versions**: TLS versions supported by the TLS server (TLS extension no. 43). 
-   24. **JA3S hash**: JA3s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting)..
-   25. **JA4S hash**: JA4s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting)..
+   24. **JA3S hash**: JA3s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting).
+   25. **JA4S hash**: JA4s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting).
    26. **JA4S_raw**: A raw format of the JA4 fingerprint (before hashing).
    27. **Filename**: A name of the PCAP file containg the processed captured traffic. 
    28. **Version**: A version of the application (not used, 0).
