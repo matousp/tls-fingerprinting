@@ -6,15 +6,13 @@ This folder contains datasets in PCAP and CSV format used in the experiments pub
   * [desktop](desktop): Original PCAP and CSV files of captured desktop application communications.
   * [mobile](mobile): Original PCAP and CSV files of captured mobile application communications.
   * [iscx](isxc): PCAP and CSV files of [VPN-nonVPN dataset (ISCXVPN2016)](https://www.unb.ca/cic/datasets/vpn.html) originally created by the Canadian Institute for Cybersecurity (CIC).
-  * **desktop-apps.csv**: annotated CSV records of Windows application and service communications (25 applications).
-  * **desktop-malware.csv**: Annotated CSV records of desktop malware communications (33 malware families).
-  * **mobile-apps.csv**: Annotated CSV records of mobile application communications  (35 applications).
-  * **mobile-malware.csv**: Annotated CSV records of mobile malware communications (29 malware samples).
+  * **mobile_desktop_apps-raw.csv**: annotated CSV records of mobile and desktop application and service communications (78  applications).
+  * **iscx-raw.csv**: annotated CSV records of application communications of the VPN-nonVPN dataset (ISCXVPN2016) dataset (16 applications).
   * **ad-list.txt**: A text file with compiled from various public sources. It contains a list of domain names of advertising and tracking servers. When processing TLS records, the SNI obtained from the client's TLS Hello packet is compared with this list. If a match is found, the type "A" (ads) is inserted.
   * **whois.txt**: A list of IP address to Organization Names mappings obtained from the Whois database. When processing TLS records, destination IP addresses are compared agains this list and if a match is found, the OrgName is inserted into the CSV file. 
   
   
-## CSV file format - a sequence of TLS connections
+## CSV raw file format - a sequence of TLS connections
    1. **SrcIP**: TLS client IP address
    2. **DstIP**: TLS server IP address
    3. **SrcPort**: TLS client port number
@@ -25,30 +23,27 @@ This folder contains datasets in PCAP and CSV format used in the experiments pub
    8. **TLS Version**: TLS handshake version
    9. **Client CipherSuite**: A list of client cipher suites offered during the TLS handshake.
    10. **Client Extensions**: A list of client extensions offered during the TLS handshake.
-   11. **Client Supported Groups**: A list of supported groups. 
-   12. **EC_fmt**: a list of Elliptic Curve formats.
-   13. **JA3hash**: JA3 client fingerprint computed as defined by [John Althouse et al.](https://medium.com/salesforce-engineering/tls-fingerprinting-with-ja3-and-ja3s-247362855967). 
-   14. **JA4 hash**: JA4 client fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting).
-   15. **JA4_raw**: A raw format of the JA4 fingerprint (before hashing).
-   16. **AppName**: Application name (annotation).
-   17. **Type**: 0 (normal application) / M (malware) / A (advertising/analytics server).
-   18. **Server CipherSuite**: A cipher suite selected by the server during the TLS handshake. 
-   19. **Server Extensions**: Extensions selected by the server during the TLS handshake.
-   20. **JA3S hash**: JA3s server fingerprint.
-   21. **JA4S hash**: JA4s server fingerprint.
-   22. **JA4S_raw**: A raw format of the JA4 fingerprint (before hashing).
-   23. **Filename**: A name of the PCAP file containg the processed captured traffic. 
-   24. **Version**: A version of the application/malware (not used, 0).
+   11. **Client Supported Groups**: A list of supported groups (TLS extension no. 10). 
+   12. **EC_fmt**: a list of Elliptic Curve formats (TLS extension no. 11).
+   13. **ALPN**: Extracted data from the Application Layer Protocol Negotiation field (TLS extension no. 16)
+   14. **Signature Algorithms**: a set of signature algorithms supported by the TLS server (TLS extension no. 13)
+   15. **Client Supported Versions**: A set of TLS versions supported by the TLS client (TLS extension no. 43)
+   16. **JA3hash**: JA3 client fingerprint computed as defined by [John Althouse et al.](https://medium.com/salesforce-engineering/tls-fingerprinting-with-ja3-and-ja3s-247362855967). 
+   17. **JA4 hash**: JA4 client fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting).
+   18. **JA4_raw**: A raw format of the JA4 fingerprint (before hashing).
+   19. **AppName**: Application name (annotation).
+   20. **Type**: 0 (normal application) / M (malware) / A (advertising/analytics server).
+   21. **Server CipherSuite**: A cipher suite selected by the server during the TLS handshake. 
+   22. **Server Extensions**: Extensions selected by the server during the TLS handshake.
+   23. **Server Supported Versions**: TLS versions supported by the TLS server (TLS extension no. 43). 
+   24. **JA3S hash**: JA3s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting)..
+   25. **JA4S hash**: JA4s server fingerprint computed as defined by [John Althouse et al.](https://blog.foxio.io/ja4+-network-fingerprinting)..
+   26. **JA4S_raw**: A raw format of the JA4 fingerprint (before hashing).
+   27. **Filename**: A name of the PCAP file containg the processed captured traffic. 
+   28. **Version**: A version of the application (not used, 0).
 
 ## Traffic Generation
 
 Samples of mobile applications (both malware and benign) were generated by the [HashApp tool](https://hashapp.netology.sk/) developed by Mr. Kristián Kičinka. This tool reads an APK file, runs its emulation on Android Virtual Device (AVD), captures application communication and extracts TLS fingerprints. 
 
-Desktop malware communications were generated by [Tri.ge sandbox](https://tria.ge/), where we run malware samples obtained from [Malware Bazaar](https://bazaar.abuse.ch/). 
-
 MS Window desktop communication samples were obtained by running Windows applications and services, and capturing their communication using tshark. The captured communication was later annotated by process names obtained by observing the connected ports on the desktop. 
-
-The packet generation and processing is depicted in the following figure.
-
-![Generating Dataset](./dataset-generation.jpg)
-
